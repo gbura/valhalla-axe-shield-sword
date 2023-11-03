@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gra w kamień, papier, nożyce w stylu nordyckim - VALHALLA.">
+    <meta name="author" content="gbura">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valhalla - AXE | SHIELD | SWORD</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://kit.fontawesome.com/dd2a518837.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <p class="info">
+        <i class="fas fa-question"></i>
+    </p>
+
+    <div class="start-game">
+        <img src="./img/viking.gif" alt="viking with hammer gif" class="viking-img">
+        <button class="start-btn">START GAME</button>
+    </div>
+
+    <div class="container">
+        <div class="wrapper">
+
+            <div class="logo">
+                <img src="./img/logo.png" alt="viking photo" class="logo-img">
+                <h1 class="logo-header">VALHALLA</h1>
+            </div>
+
+
+
+            <div class="game-box">
+                <div class="images">
+                    <div class="player">
+                        <img src="./img/shieldPlayer.png" alt="shield image" class="player-img">
+                    </div>
+                    <div class="computer">
+                        <img src="./img/shieldComputer.png" alt="shield image" class="computer-img">
+                    </div>
+                </div>
+                <div class="points">
+                    <p class="points-text">PLAYER <span class="player-points">0</span> | <span
+                            class="computer-points">0</span>
+                        COMPUTER</p>
+                </div>
+                <div class="options">
+                    <button class="option" aria-label="axe">axe</button>
+                    <button class="option" aria-label="shield">shield</button>
+                    <button class="option" aria-label="sword">sword</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="legend-shadow">
+        <div class="legend">
+            <h2 class="legend-header">INSTRUCTION:</h2>
+            <ul>
+                <li>AXE BEATS SHIELD</li>
+                <li>SHIELD BEATS SWORD</li>
+                <li>SWORD BEATS AXE</li>
+                <li>AXE DRAWS AXE</li>
+                <li>SHIELD DRAWS SHIELD</li>
+                <li>SWORD DRAWS SWORD</li>
+            </ul>
+            <button class="close">close</button>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
