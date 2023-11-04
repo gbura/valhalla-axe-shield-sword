@@ -81,20 +81,6 @@ body {
 	animation: show-game 0.5s ease-in forwards;
 }
 
-@keyframes show-game {
-	0% {
-		display: none;
-		opacity: 0;
-		transform: translateY(-100%);
-	}
-
-	100% {
-		display: flex;
-		opacity: 1;
-		transform: translateY(0%);
-	}
-}
-
 .logo {
 	display: flex;
 	justify-content: center;
@@ -271,6 +257,20 @@ body {
 
 .shake-computer {
 	animation: shake-computer 1.5s linear;
+}
+
+@keyframes show-game {
+	0% {
+		display: none;
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
+		display: flex;
+		opacity: 1;
+		transform: translateY(0%);
+	}
 }
 
 @keyframes hide-start-panel {
