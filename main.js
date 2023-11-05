@@ -1,3 +1,7 @@
+const song = document.getElementById('song')
+const musicOnIcon = document.querySelector('.music-on')
+const musicOffIcon = document.querySelector('.music-off')
+
 const infoBtn = document.querySelector('.info')
 const legendShadow = document.querySelector('.legend-shadow')
 const closeLegendBtn = document.querySelector('.close')
@@ -15,6 +19,22 @@ const options = document.querySelectorAll('.option')
 
 let pPoints = 0
 let cPoints = 0
+
+window.onload = function () {
+	song.play()
+
+	musicOnIcon.addEventListener('click', () => {
+		musicOnIcon.classList.add('hide')
+		musicOffIcon.classList.remove('hide')
+		song.pause()
+	})
+
+	musicOffIcon.addEventListener('click', () => {
+		musicOnIcon.classList.remove('hide')
+		musicOffIcon.classList.add('hide')
+		song.play()
+	})
+}
 
 const showLegend = () => {
 	if (!(legendShadow.style.display === 'block')) {

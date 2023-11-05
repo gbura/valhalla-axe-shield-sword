@@ -22,6 +22,10 @@ body {
 	background-position: center;
 }
 
+.hide {
+	display: none;
+}
+
 .wrapper {
 	width: 100%;
 	max-width: 1200px;
@@ -183,10 +187,10 @@ body {
 	transform: translateY(0);
 }
 
-.info {
+.info, .music-on, .music-off {
 	position: absolute;
 	top: 0;
-	right: 1.4rem;
+	right: 4.8rem;
 	padding: 1rem;
 	font-size: 2.4rem;
 	cursor: pointer;
@@ -195,8 +199,20 @@ body {
 	color: #ddd9d9;
 }
 
-.info:hover {
+.info:hover, .music-on:hover {
 	color: #fff;
+}
+
+.music-off:hover {
+	color: tomato;
+}
+
+.music-on, .music-off{
+	right: 0.5rem;
+}
+
+.fa-volume-xmark {
+	color: tomato;
 }
 
 .legend-shadow {
