@@ -25,8 +25,6 @@ let pPoints = 0
 let cPoints = 0
 
 window.onload = function () {
-	song.play()
-
 	musicOnIcon.addEventListener('click', () => {
 		musicOnIcon.classList.add('hide')
 		musicOffIcon.classList.remove('hide')
