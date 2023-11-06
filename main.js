@@ -1,6 +1,6 @@
 const song = document.getElementById('song')
 const hitSound = document.getElementById('hit')
-const startrestartSound = document.getElementById('start-sound')
+const startSound = document.getElementById('start-sound')
 const musicOnIcon = document.querySelector('.music-on')
 const musicOffIcon = document.querySelector('.music-off')
 
@@ -51,7 +51,7 @@ const showLegend = () => {
 }
 
 const startGame = () => {
-	startrestartSound.play()
+	startSound.play()
 	startGamePanel.classList.add('start-game-animation')
 
 	setTimeout(() => {
