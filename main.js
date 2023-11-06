@@ -17,6 +17,10 @@ const playerPoints = document.querySelector('.player-points')
 const computerPoints = document.querySelector('.computer-points')
 const options = document.querySelectorAll('.option')
 
+const winnerText = document.querySelector('.winner')
+const restartBtn = document.querySelector('.restart')
+const pointsBox = document.querySelector('.points')
+
 let pPoints = 0
 let cPoints = 0
 
@@ -101,11 +105,30 @@ options.forEach(option => {
 
 			playerPoints.innerHTML = `${pPoints}`
 			computerPoints.innerHTML = `${cPoints}`
+
+			if (`${pPoints}` == 10) {
+				endGame()
+				winnerText.innerHTML = 'you won!'
+			} else if (`${cPoints}` == 10) {
+				endGame()
+				winnerText.innerHTML = 'you lose!'
+			}
 		}, 900)
 	})
 })
+
+const endGame = () => {
+	options.forEach(option => {
+		option.classList.add('hide')
+	})
+	winnerText.classList.remove('hide')
+	restartBtn.classList.remove('hide')
+}
 
 infoBtn.addEventListener('click', showLegend)
 closeLegendBtn.addEventListener('click', showLegend)
 window.addEventListener('click', e => (e.target === legendShadow ? showLegend() : false))
 startGameBtn.addEventListener('click', startGame)
+restartBtn.addEventListener('click', () => {
+	window.location.reload()
+})

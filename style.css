@@ -118,7 +118,7 @@ body {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	margin-bottom: 4.5rem;
+	margin-bottom: 3.5rem;
 	gap: 3rem;
 }
 
@@ -144,6 +144,56 @@ body {
 	color: red;
 }
 
+.restart-game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: -2rem;
+	gap: 1rem;
+}
+
+.winner {
+	font-size: 3.2rem;
+	color: #9c1313;
+	text-shadow: 0 0 3px white;
+	text-transform: uppercase;
+}
+
+.restart {
+	position: relative;
+	overflow: hidden;
+	padding: .5rem 1rem;
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 8px;
+	background-color: #ffffff44;
+	font-family: 'Skranji';
+	font-size: 1.8rem;
+	color: #9c1313;
+	text-shadow: 0 0 3px white;
+	cursor: pointer;
+}
+
+.restart:hover {
+	color: #b61818;
+}
+
+.restart::before, .option::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	background-color: rgb(255, 255, 255);
+	width: 100%;
+	height: 100%;
+	transform: translateY(100%);
+	transition: transform 0.2s ease-in;
+	z-index: -1000;
+}
+
+.restart:hover::before, .option:hover::before {
+	transform: translateY(0);
+}
+
 .options {
 	display: flex;
 	justify-content: center;
@@ -159,7 +209,6 @@ body {
 	padding: 1rem 0;
 	border: 2px solid rgb(255, 255, 255);
 	border-radius: 8px;
-	background: transparent;
 	font-family: 'Skranji';
 	font-size: 1.8rem;
 	color: #000;
@@ -168,23 +217,6 @@ body {
 	cursor: pointer;
 	z-index: 1000;
 	background-color: #ffffff44;
-}
-
-.option::before {
-	position: absolute;
-	content: '';
-	top: 0;
-	left: 0;
-	background-color: rgb(255, 255, 255);
-	width: 100%;
-	height: 100%;
-	transform: translateY(100%);
-	transition: transform 0.2s ease-in;
-	z-index: -1000;
-}
-
-.option:hover::before {
-	transform: translateY(0);
 }
 
 .info, .music-on, .music-off {
@@ -381,6 +413,7 @@ body {
 
 	.images {
 		gap: 5rem;
+		margin-bottom: 4.5rem;
 	}
 
 	.player-img,
@@ -391,6 +424,19 @@ body {
 	.points-text {
 		font-size: 3rem;
 		margin-bottom: 1rem;
+	}
+
+	.restart-game {
+		margin-top: 0rem;
+		gap: 2rem;
+	}
+
+	.winner {
+		font-size: 5rem;
+	}
+
+	.restart {
+		padding: 1rem 1rem;
 	}
 
 	.options {
