@@ -1,4 +1,6 @@
 const song = document.getElementById('song')
+const hitSound = document.getElementById('hit')
+const startrestartSound = document.getElementById('start-sound')
 const musicOnIcon = document.querySelector('.music-on')
 const musicOffIcon = document.querySelector('.music-off')
 
@@ -49,6 +51,7 @@ const showLegend = () => {
 }
 
 const startGame = () => {
+	startrestartSound.play()
 	startGamePanel.classList.add('start-game-animation')
 
 	setTimeout(() => {
@@ -60,12 +63,15 @@ const startGame = () => {
 
 options.forEach(option => {
 	option.addEventListener('click', () => {
+		hitSound.play()
 		player.classList.add('shake-player')
 		computer.classList.add('shake-computer')
+		option.disabled = true
 
 		setTimeout(() => {
 			player.classList.remove('shake-player')
 			computer.classList.remove('shake-computer')
+			option.disabled = false
 
 			const choice = ['axe', 'shield', 'sword']
 			let numbers = Math.floor(Math.random() * 3)
