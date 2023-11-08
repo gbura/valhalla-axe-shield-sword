@@ -74,37 +74,24 @@ options.forEach(option => {
 			option.disabled = false
 
 			const choice = ['axe', 'shield', 'sword']
-			let numbers = Math.floor(Math.random() * 3)
+			const outcomes = {
+				shield: { axe: 'win', sword: 'lose' },
+				axe: { shield: 'lose', sword: 'win' },
+				sword: { shield: 'win', axe: 'lose' },
+			}
 
+			let numbers = Math.floor(Math.random() * 3)
 			let computerChoice = choice[numbers]
 
 			player.src = `./img/${option.innerHTML}Player.png`
 			computer.src = `./img/${computerChoice}Computer.png`
 
-			if (option.innerHTML === 'shield') {
-				if (computerChoice === 'axe') {
-					cPoints++
-				} else if (computerChoice === 'sword') {
-					pPoints++
-				} else {
-					return
-				}
-			} else if (option.innerHTML === 'axe') {
-				if (computerChoice === 'shield') {
-					pPoints++
-				} else if (computerChoice === 'sword') {
-					cPoints++
-				} else {
-					return
-				}
-			} else if (option.innerHTML === 'sword') {
-				if (computerChoice === 'shield') {
-					cPoints++
-				} else if (computerChoice === 'axe') {
-					pPoints++
-				} else {
-					return
-				}
+			const outcome = outcomes[option.innerHTML][computerChoice]
+
+			if (outcome === 'win') {
+				pPoints++
+			} else if (outcome === 'lose') {
+				cPoints++
 			}
 
 			playerPoints.innerHTML = `${pPoints}`
