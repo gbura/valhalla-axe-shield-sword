@@ -1,30 +1,30 @@
-const song = document.getElementById('song')
-const hitSound = document.getElementById('hit')
-const startSound = document.getElementById('start-sound')
-const musicOnIcon = document.querySelector('.music-on')
-const musicOffIcon = document.querySelector('.music-off')
+import './styles/style.css'
 
-const infoBtn = document.querySelector('.info')
-const legendShadow = document.querySelector('.legend-shadow')
-const closeLegendBtn = document.querySelector('.close')
+const song = <HTMLAudioElement>document.getElementById('song')
+const hitSound = <HTMLAudioElement>document.getElementById('hit')
+const startSound = <HTMLAudioElement>document.getElementById('start-sound')
+const musicOnIcon = <HTMLParagraphElement>document.querySelector('.music-on')
+const musicOffIcon = <HTMLParagraphElement>document.querySelector('.music-off')
 
-const startGamePanel = document.querySelector('.start-game')
-const startGameBtn = document.querySelector('.start-btn')
+const infoBtn = <HTMLParagraphElement>document.querySelector('.info')
+const legendShadow = <HTMLDivElement>document.querySelector('.legend-shadow')
+const closeLegendBtn = <HTMLButtonElement>document.querySelector('.close')
 
-const gamePanel = document.querySelector('.container')
+const startGamePanel = <HTMLDivElement>document.querySelector('.start-game')
+const startGameBtn = <HTMLButtonElement>document.querySelector('.start-btn')
 
-const player = document.querySelector('.player-img')
-const computer = document.querySelector('.computer-img')
-const playerPoints = document.querySelector('.player-points')
-const computerPoints = document.querySelector('.computer-points')
-const options = document.querySelectorAll('.option')
+const gamePanel = <HTMLDivElement>document.querySelector('.container')
 
-const winnerText = document.querySelector('.winner')
-const restartBtn = document.querySelector('.restart')
-const pointsBox = document.querySelector('.points')
+const player = <HTMLImageElement>document.querySelector('.player-img')
+const computer = <HTMLImageElement>document.querySelector('.computer-img')
+const playerPoints = <HTMLSpanElement>document.querySelector('.player-points')
+const computerPoints = <HTMLSpanElement>document.querySelector('.computer-points')
+const options: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.option')
+const winnerText = <HTMLParagraphElement>document.querySelector('.winner')
+const restartBtn = <HTMLButtonElement>document.querySelector('.restart')
 
-let pPoints = 0
-let cPoints = 0
+let pPoints: number = 0
+let cPoints: number = 0
 
 window.onload = function () {
 	musicOnIcon.addEventListener('click', () => {
@@ -61,7 +61,13 @@ const startGame = () => {
 	}, 200)
 }
 
-options.forEach(option => {
+type Outcomes = {
+	[atacker: string]: {
+		[defender: string]: string
+	}
+}
+
+options.forEach((option: HTMLButtonElement) => {
 	option.addEventListener('click', () => {
 		hitSound.play()
 		player.classList.add('shake-player')
@@ -73,20 +79,20 @@ options.forEach(option => {
 			computer.classList.remove('shake-computer')
 			option.disabled = false
 
-			const choice = ['axe', 'shield', 'sword']
-			const outcomes = {
+			const choice: string[] = ['axe', 'shield', 'sword']
+			const outcomes: Outcomes = {
 				shield: { axe: 'win', sword: 'lose' },
 				axe: { shield: 'lose', sword: 'win' },
 				sword: { shield: 'win', axe: 'lose' },
 			}
 
-			let numbers = Math.floor(Math.random() * 3)
-			let computerChoice = choice[numbers]
+			let numbers: number = Math.floor(Math.random() * 3)
+			let computerChoice: string = choice[numbers]
 
-			player.src = `./img/${option.innerHTML}Player.png`
-			computer.src = `./img/${computerChoice}Computer.png`
+			player.src = `./src/assets/img/${option.innerHTML}Player.png`
+			computer.src = `./src/assets/img/${computerChoice}Computer.png`
 
-			const outcome = outcomes[option.innerHTML][computerChoice]
+			const outcome: string = outcomes[option.innerHTML][computerChoice]
 
 			if (outcome === 'win') {
 				pPoints++
@@ -97,10 +103,10 @@ options.forEach(option => {
 			playerPoints.innerHTML = `${pPoints}`
 			computerPoints.innerHTML = `${cPoints}`
 
-			if (`${pPoints}` == 10) {
+			if (Number(`${pPoints}`) === 10) {
 				endGame()
 				winnerText.innerHTML = 'you won!'
-			} else if (`${cPoints}` == 10) {
+			} else if (Number(`${cPoints}`) === 10) {
 				endGame()
 				winnerText.innerHTML = 'you lose!'
 			}
