@@ -82,7 +82,7 @@ S.forEach(s => {
 					}
 				let r = Math.floor(Math.random() * 3),
 					e = o[r]
-				;(a.src = `/${s.innerHTML}Player.png`), (u.src = `/${e}Computer.png`)
+				;(a.src = `./src/assets/img/${s.innerHTML}Player.png`), (u.src = `./src/assets/img/${e}Computer.png`)
 				const t = c[s.innerHTML][e]
 				t === 'win' ? m++ : t === 'lose' && y++,
 					(M.innerHTML = `${m}`),
