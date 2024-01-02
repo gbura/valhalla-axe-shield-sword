@@ -15,7 +15,7 @@ body {
 	font-size: 1.6rem;
 	font-family: Skranji;
 	min-height: 100vh;
-	background-image: url(/vite-website/assets/background-b4R-laxG.png);
+	background-image: url(./background-b4R-laxG.png);
 	background-size: cover;
 	background-position: center;
 }
