@@ -89,8 +89,8 @@ options.forEach((option: HTMLButtonElement) => {
 			let numbers: number = Math.floor(Math.random() * 3)
 			let computerChoice: string = choice[numbers]
 
-			player.src = `./src/assets/img/${option.innerHTML}Player.png`
-			computer.src = `./src/assets/img/${computerChoice}Computer.png`
+			player.src = `./img/${option.innerHTML}Player.png`
+			computer.src = `./img/${computerChoice}Computer.png`
 
 			const outcome: string = outcomes[option.innerHTML][computerChoice]
 
